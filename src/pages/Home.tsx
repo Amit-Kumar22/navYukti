@@ -1,16 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import * as Icons from "lucide-react";
-import { ArrowRight, Sparkles, Star, CheckCircle2, Quote, CreditCard } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Quote, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { SEO } from "@/components/SEO";
 import { COURSES, PROCESS_STEPS, SERVICES, SITE, TESTIMONIALS, WHY_US, BLOGS } from "@/lib/site-data";
-
-const Icon = ({ name, ...rest }: { name: string; [k: string]: any }) => {
-  const C = (Icons as any)[name] ?? Icons.Sparkles;
-  return <C {...rest} />;
-};
 
 const Home = () => {
   return (
@@ -21,61 +15,107 @@ const Home = () => {
       />
 
       {/* HERO */}
-      <section className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-gradient-hero">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-20 -left-32 w-96 h-96 bg-primary/30 rounded-full blur-3xl opacity-60" />
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl" />
+      <section className="relative min-h-[92vh] flex items-center pt-20 pb-10 overflow-hidden bg-gradient-hero">
+        {/* Full-width background image with overlay */}
+        <div className="absolute inset-0 -z-20">
+          <img
+            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80"
+            alt=""
+            className="w-full h-full object-cover object-top"
+            fetchPriority="high"
+          />
+          {/* Gradient overlay — light on right (form side), deeper on left (text side) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/80 to-white/60" />
         </div>
 
-        <div className="container-custom grid lg:grid-cols-12 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-7"
-          >
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur border border-primary/20 text-xs font-semibold text-primary mb-5 shadow-soft">
-              <Sparkles size={14} /> Trusted by 5,000+ students
-            </span>
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-secondary leading-[1.05]">
-              Confused About <br />
-              <span className="gradient-text">Your Career?</span>
-            </h1>
-            <p className="mt-4 text-base text-muted-foreground max-w-xl leading-relaxed">
-              Get free expert counselling, admission guidance, and college selection support — personalised for your goals, by people who care.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="h-14 px-8 rounded-full bg-gradient-cta hover:opacity-90 shadow-glow text-base font-semibold">
-                <Link to="/contact">Book Free Counselling <ArrowRight /></Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-8 rounded-full border-secondary/20 text-secondary hover:bg-secondary hover:text-secondary-foreground text-base font-semibold">
-                <Link to="/courses">Explore Courses</Link>
-              </Button>
-            </div>
-            <div className="mt-10 flex items-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gradient-primary" />
-                  ))}
-                </div>
-                <span className="text-muted-foreground">Loved by students</span>
-              </div>
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={16} className="fill-primary text-primary" />)}
-                <span className="ml-1 font-semibold text-secondary">4.9/5</span>
-              </div>
-            </div>
-          </motion.div>
+        {/* Subtle blob accents */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div className="absolute -top-16 -left-24 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-10 w-80 h-80 bg-accent/15 rounded-full blur-3xl" />
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5"
-          >
-            <EnquiryForm />
-          </motion.div>
+        <div className="container-custom w-full">
+          <div className="grid lg:grid-cols-2 gap-8 xl:gap-14 items-center">
+
+            {/* LEFT — Copy */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65 }}
+              className="flex flex-col gap-5 order-2 lg:order-1"
+            >
+              {/* Badge */}
+              <span className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary shadow-sm">
+                <Sparkles size={13} /> Trusted by 5,000+ students across Bihar
+              </span>
+
+              {/* Headline */}
+              <div>
+                <h1 className="font-display font-extrabold text-3xl sm:text-4xl xl:text-5xl text-secondary leading-[1.1] tracking-tight">
+                  Confused About<br className="hidden sm:block" />{" "}
+                  <span className="gradient-text">Your Career?</span>
+                </h1>
+                <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed">
+                  Get free expert counselling, admission guidance &amp; college selection — personalised for your goals, by people who care.
+                </p>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3">
+                <Button asChild size="sm" className="h-10 px-5 rounded-full bg-gradient-cta hover:opacity-90 shadow-glow text-sm font-semibold">
+                  <Link to="/contact">Book Free Counselling <ArrowRight size={15} className="ml-1" /></Link>
+                </Button>
+                <Button asChild size="sm" variant="outline" className="h-10 px-5 rounded-full border-secondary/25 text-secondary hover:bg-secondary hover:text-secondary-foreground text-sm font-semibold">
+                  <Link to="/courses">Explore Courses</Link>
+                </Button>
+              </div>
+
+              {/* Social proof */}
+              <div className="flex flex-wrap items-center gap-5 pt-1">
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="w-7 h-7 rounded-full border-2 border-white bg-gradient-primary shadow-sm" />
+                    ))}
+                  </div>
+                  <span className="text-xs text-muted-foreground font-medium">Loved by students</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={13} className="fill-primary text-primary" />)}
+                  <span className="ml-1 text-xs font-bold text-secondary">4.9 / 5</span>
+                </div>
+                <div className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
+                  Free counselling available now
+                </div>
+              </div>
+
+              {/* Key stats row */}
+              <div className="grid grid-cols-3 gap-3 pt-1 border-t border-border/40">
+                {[
+                  { stat: "100+", label: "Partner Colleges" },
+                  { stat: "12+", label: "Years Experience" },
+                  { stat: "98%", label: "Success Rate" },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <div className="font-display font-extrabold text-lg sm:text-xl gradient-text">{s.stat}</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* RIGHT — Enquiry Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65, delay: 0.15 }}
+              className="order-1 lg:order-2"
+            >
+              <EnquiryForm compact />
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
@@ -92,8 +132,8 @@ const Home = () => {
                 transition={{ delay: i * 0.1 }}
                 className="bg-card rounded-2xl p-4 shadow-card border border-border/50 hover:shadow-elegant hover:-translate-y-1 transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                  <Icon name={s.icon} className="text-primary" size={22} />
+                <div className="w-14 h-14 rounded-xl overflow-hidden mb-3 flex items-center justify-center">
+                  <img src={s.image} alt={s.label} className="w-full h-full object-contain" />
                 </div>
                 <div className="font-display font-extrabold text-2xl text-secondary">{s.stat}</div>
                 <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
@@ -125,8 +165,8 @@ const Home = () => {
                   to={`/services/${s.slug}`}
                   className="group block bg-card rounded-2xl p-6 shadow-card hover:shadow-elegant border border-border/50 hover:border-primary/30 transition-all hover:-translate-y-1 h-full"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 shadow-glow group-hover:scale-105 transition-transform">
-                    <Icon name={s.icon} className="text-primary-foreground" size={22} />
+                  <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <img src={s.image} alt={s.title} className="w-full h-full object-contain" />
                   </div>
                   <h3 className="font-display font-bold text-lg text-secondary mb-1">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">{s.short}</p>
@@ -148,6 +188,9 @@ const Home = () => {
             <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-secondary mt-2">
               From confusion to <span className="gradient-text">clarity</span>
             </h2>
+            <div className="mt-6 flex justify-center">
+              <img src="/svg/undraw_process_re_gws7.svg" alt="Our process" className="w-full max-w-sm h-40 object-contain" />
+            </div>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PROCESS_STEPS.map((step, i) => (
@@ -192,8 +235,8 @@ const Home = () => {
                 transition={{ delay: i * 0.04 }}
                 className="bg-card rounded-xl p-4 text-center shadow-soft border border-border/50 hover:border-primary/40 hover:-translate-y-1 transition-all"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 mx-auto flex items-center justify-center mb-2">
-                  <Icon name={c.icon} className="text-primary" size={18} />
+                <div className="w-12 h-12 rounded-lg overflow-hidden mx-auto flex items-center justify-center mb-2">
+                  <img src={c.image} alt={c.name} className="w-full h-full object-contain" />
                 </div>
                 <div className="font-semibold text-sm text-secondary">{c.name}</div>
               </motion.div>
@@ -303,10 +346,8 @@ const Home = () => {
                 transition={{ delay: i * 0.08 }}
                 className="group bg-card rounded-2xl overflow-hidden shadow-card border border-border/50 hover:shadow-elegant hover:-translate-y-1 transition-all"
               >
-                <div className="aspect-[16/10] bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icons.BookOpen className="text-primary/40" size={40} />
-                  </div>
+                <div className="aspect-[16/10] bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden">
+                  <img src={b.image} alt={b.title} className="w-full h-full object-contain p-4" />
                 </div>
                 <div className="p-4">
                   <div className="text-xs text-muted-foreground mb-1">{b.date}</div>

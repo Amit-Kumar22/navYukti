@@ -25,13 +25,15 @@ export const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "py-2" : "py-4"
+        scrolled ? "py-2" : "py-3"
       )}
     >
       <div
         className={cn(
           "container-custom mx-4 sm:mx-auto px-4 sm:px-6 rounded-2xl transition-all duration-300",
-          scrolled ? "glass shadow-card py-2" : "bg-transparent py-3"
+          scrolled || open
+            ? "glass shadow-card py-2"
+            : "bg-white/80 backdrop-blur-md shadow-sm border border-white/60 py-2"
         )}
       >
         <div className="flex items-center justify-between gap-4">

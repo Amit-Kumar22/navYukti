@@ -1,16 +1,23 @@
 import { motion } from "framer-motion";
-import { Camera } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SEO } from "@/components/SEO";
 
+const GALLERY_ITEMS = [
+  { src: "/svg/Consulting.svg", caption: "Career Counselling Session" },
+  { src: "/svg/undraw_teaching_re_g7e3.svg", caption: "Classroom Guidance" },
+  { src: "/svg/undraw_meeting_re_i53h.svg", caption: "Team Meeting" },
+  { src: "/svg/businessman-attending-video-conference.svg", caption: "Online Counselling" },
+  { src: "/svg/undraw_interview_re_e5jn.svg", caption: "Mock Interview Prep" },
+  { src: "/svg/undraw_team_collaboration_re_ow29.svg", caption: "Student Collaboration" },
+  { src: "/svg/undraw_educator_re_ju47.svg", caption: "Expert Educator" },
+  { src: "/svg/Coding-workshop.svg", caption: "Tech Workshop" },
+  { src: "/svg/Boss-giving-instructions-to-employee.svg", caption: "Mentorship Session" },
+  { src: "/svg/lady-teaching-hindi-in-the-classroom.svg", caption: "Academic Support" },
+  { src: "/svg/undraw_co_workers_re_1i6i.svg", caption: "Student Community" },
+  { src: "/svg/undraw_career_progress_ivdb.svg", caption: "Career Progress" },
+];
+
 const Gallery = () => {
-  const items = Array.from({ length: 12 }, (_, i) => i);
-  const gradients = [
-    "from-primary/30 to-accent/20",
-    "from-accent/30 to-primary/20",
-    "from-secondary/40 to-primary/30",
-    "from-primary/40 to-secondary/30",
-  ];
   return (
     <>
       <SEO title="Gallery — Navyukti Consultancy" description="Moments from our counselling sessions, college visits and student events." />
@@ -19,19 +26,25 @@ const Gallery = () => {
         title="Moments that matter."
         subtitle="A glimpse into our counselling sessions, campus visits, workshops and happy student stories."
         breadcrumb={[{ label: "Home", to: "/" }, { label: "Gallery" }]}
+        bgImage="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=80"
       />
       <section className="section-padding">
         <div className="container-custom grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {items.map((i) => (
+          {GALLERY_ITEMS.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.04 }}
-              className={`aspect-square rounded-2xl bg-gradient-to-br ${gradients[i % gradients.length]} shadow-soft border border-border/50 flex items-center justify-center hover:scale-105 transition-transform cursor-pointer`}
+              className="aspect-square rounded-2xl bg-card shadow-soft border border-border/50 flex flex-col items-center justify-center p-4 hover:scale-105 hover:shadow-elegant transition-all cursor-pointer group overflow-hidden"
             >
-              <Camera className="text-white/70" size={36} />
+              <img
+                src={item.src}
+                alt={item.caption}
+                className="w-full h-4/5 object-contain group-hover:scale-110 transition-transform duration-300"
+              />
+              <p className="mt-2 text-xs font-medium text-muted-foreground text-center line-clamp-1">{item.caption}</p>
             </motion.div>
           ))}
         </div>

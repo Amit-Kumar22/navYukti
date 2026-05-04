@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import * as Icons from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SEO } from "@/components/SEO";
 import { SERVICES } from "@/lib/site-data";
-
-const Icon = ({ name, ...rest }: { name: string; [k: string]: any }) => {
-  const C = (Icons as any)[name] ?? Icons.Sparkles;
-  return <C {...rest} />;
-};
 
 const Services = () => (
   <>
@@ -28,8 +22,8 @@ const Services = () => (
               to={`/services/${s.slug}`}
               className="group block bg-card rounded-3xl p-8 shadow-card hover:shadow-elegant border border-border/50 hover:border-primary/30 transition-all hover:-translate-y-2 h-full"
             >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center mb-5 shadow-glow group-hover:scale-110 transition-transform">
-                <Icon name={s.icon} className="text-primary-foreground" size={26} />
+              <div className="w-20 h-20 rounded-2xl overflow-hidden mb-5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <img src={s.image} alt={s.title} className="w-full h-full object-contain" />
               </div>
               <h3 className="font-display font-bold text-xl text-secondary mb-2">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">{s.short}</p>

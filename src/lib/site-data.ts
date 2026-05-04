@@ -26,34 +26,37 @@ export const SERVICES = [
     title: "Admission Guidance",
     short: "Step-by-step support to apply, prepare and secure admission in your dream college.",
     icon: "GraduationCap",
+    image: "/svg/undraw_education_f8ru.svg",
   },
   {
     slug: "college-selection",
     title: "College Selection",
     short: "Pick the right college based on accreditation, ranking, placements & fit.",
     icon: "School",
+    image: "/svg/undraw_choose_re_7d5a.svg",
   },
   {
     slug: "career-counselling",
     title: "Career Counselling",
     short: "Discover the right career path with expert one-on-one counselling.",
     icon: "Compass",
+    image: "/svg/Personal-Development.svg",
   },
 ];
 
 export const COURSES = [
-  { name: "BCA", icon: "Code2" },
-  { name: "MCA", icon: "Cpu" },
-  { name: "BBA", icon: "Briefcase" },
-  { name: "MBA", icon: "TrendingUp" },
-  { name: "B.Tech", icon: "Wrench" },
-  { name: "B.Sc Nursing", icon: "HeartPulse" },
-  { name: "B.Pharma", icon: "Pill" },
-  { name: "Diploma", icon: "FileBadge" },
-  { name: "B.Sc Agriculture", icon: "Sprout" },
-  { name: "LLB", icon: "Scale" },
-  { name: "B.Lib", icon: "Library" },
-  { name: "GNM", icon: "Stethoscope" },
+  { name: "BCA", icon: "Code2", image: "/svg/software-engineer.svg" },
+  { name: "MCA", icon: "Cpu", image: "/svg/undraw_software_engineer_re_tnjc.svg" },
+  { name: "BBA", icon: "Briefcase", image: "/svg/businessman-explaining-the-strategy.svg" },
+  { name: "MBA", icon: "TrendingUp", image: "/svg/MBA SVG.svg" },
+  { name: "B.Tech", icon: "Wrench", image: "/svg/B.TECH. SVG.svg" },
+  { name: "B.Sc Nursing", icon: "HeartPulse", image: "/svg/NURSE SVG.svg" },
+  { name: "B.Pharma", icon: "Pill", image: "/svg/MEDICINE SVG.svg" },
+  { name: "Diploma", icon: "FileBadge", image: "/svg/undraw_certificate_re_yadi.svg" },
+  { name: "B.Sc Agriculture", icon: "Sprout", image: "/svg/agri.svg" },
+  { name: "LLB", icon: "Scale", image: "/svg/ADVOCATE SVG.svg" },
+  { name: "B.Lib", icon: "Library", image: "/svg/lady-keeping-books-on-shelf.svg" },
+  { name: "GNM", icon: "Stethoscope", image: "/svg/doctor-giving-treatment-to-corona-positive-woman.svg" },
 ];
 
 export const PROCESS_STEPS = [
@@ -66,10 +69,10 @@ export const PROCESS_STEPS = [
 ];
 
 export const WHY_US = [
-  { stat: "100+", label: "Partner Colleges", icon: "School" },
-  { stat: "5,000+", label: "Students Guided", icon: "Users" },
-  { stat: "12+", label: "Years Experience", icon: "Award" },
-  { stat: "98%", label: "Success Rate", icon: "Trophy" },
+  { stat: "100+", label: "Partner Colleges", icon: "School", image: "/svg/undraw_education_f8ru.svg" },
+  { stat: "5,000+", label: "Students Guided", icon: "Users", image: "/svg/undraw_co_workers_re_1i6i.svg" },
+  { stat: "12+", label: "Years Experience", icon: "Award", image: "/svg/undraw_career_progress_ivdb.svg" },
+  { stat: "98%", label: "Success Rate", icon: "Trophy", image: "/svg/undraw_success_factors_re_ce93.svg" },
 ];
 
 export const TESTIMONIALS = [
@@ -93,7 +96,7 @@ export const COLLEGE_KEYS = [
 ];
 
 export const BLOGS = [
-  { slug: "choose-right-college", title: "How to Choose the Right College in 2025", excerpt: "Key factors every student must consider before applying.", date: "Mar 12, 2025" },
-  { slug: "career-after-12th", title: "Top 10 Career Options After 12th", excerpt: "From tech to healthcare — explore the best paths.", date: "Feb 28, 2025" },
-  { slug: "scholarship-guide", title: "Complete Guide to Student Scholarships", excerpt: "Find scholarships you actually qualify for.", date: "Feb 10, 2025" },
+  { slug: "choose-right-college", title: "How to Choose the Right College in 2025", excerpt: "Key factors every student must consider before applying.", date: "Mar 12, 2025", image: "/svg/undraw_choose_re_7d5a.svg" },
+  { slug: "career-after-12th", title: "Top 10 Career Options After 12th", excerpt: "From tech to healthcare — explore the best paths.", date: "Feb 28, 2025", image: "/svg/undraw_career_progress_ivdb.svg" },
+  { slug: "scholarship-guide", title: "Complete Guide to Student Scholarships", excerpt: "Find scholarships you actually qualify for.", date: "Feb 10, 2025", image: "/svg/undraw_certificate_re_yadi.svg" },
 ];

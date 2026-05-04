@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Target, Eye, Heart } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SEO } from "@/components/SEO";
 import { EnquiryForm } from "@/components/EnquiryForm";
 
 const About = () => {
   const values = [
-    { icon: Target, title: "Our Mission", text: "To empower every student with the right information, mentorship and tools to make confident career decisions." },
-    { icon: Eye, title: "Our Vision", text: "To become India's most trusted education consultancy — known for honesty, care and outcomes." },
-    { icon: Heart, title: "Our Values", text: "Student-first approach, complete transparency, and life-long support beyond admission." },
+    { image: "/svg/undraw_powerful_re_frhr.svg", title: "Our Mission", text: "To empower every student with the right information, mentorship and tools to make confident career decisions." },
+    { image: "/svg/undraw_going_up_re_86kg.svg", title: "Our Vision", text: "To become India's most trusted education consultancy — known for honesty, care and outcomes." },
+    { image: "/svg/undraw_feeling_proud_qne1.svg", title: "Our Values", text: "Student-first approach, complete transparency, and life-long support beyond admission." },
   ];
 
   return (
@@ -48,6 +48,9 @@ const About = () => {
             </ul>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-4">
+            <div className="col-span-2 flex justify-center mb-2">
+              <img src="/svg/Boss-giving-instructions-to-employee.svg" alt="Expert counselling illustration" className="w-full max-w-xs h-44 object-contain" />
+            </div>
             {[
               { n: "5,000+", l: "Students Guided" },
               { n: "100+", l: "Partner Colleges" },
@@ -79,8 +82,8 @@ const About = () => {
                 transition={{ delay: i * 0.1 }}
                 className="bg-card rounded-3xl p-8 shadow-card border border-border/50 hover:shadow-elegant transition-all"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-glow mb-5">
-                  <v.icon className="text-primary-foreground" size={26} />
+                <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-glow mb-5 flex items-center justify-center">
+                  <img src={v.image} alt={v.title} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-display font-bold text-xl text-secondary mb-2">{v.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{v.text}</p>
