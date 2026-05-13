@@ -15,7 +15,7 @@ const Home = () => {
       />
 
       {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center pt-20 pb-10 overflow-hidden bg-gradient-hero">
+      <section className="relative min-h-[80vh] flex items-center pt-24 pb-16 overflow-hidden">
         {/* Full-width background image with overlay */}
         <div className="absolute inset-0 -z-20">
           <img
@@ -24,95 +24,102 @@ const Home = () => {
             className="w-full h-full object-cover object-top"
             fetchPriority="high"
           />
-          {/* Gradient overlay — light on right (form side), deeper on left (text side) */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/92 via-white/80 to-white/60" />
+          {/* Dark gradient overlay for professional look */}
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/90 via-secondary/75 to-primary/60" />
         </div>
 
-        {/* Subtle blob accents */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute -top-16 -left-24 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-10 w-80 h-80 bg-accent/15 rounded-full blur-3xl" />
+        {/* Subtle animated blobs */}
+        <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+          <div className="absolute -top-20 -left-20 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-10 right-0 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container-custom w-full">
-          <div className="grid lg:grid-cols-2 gap-8 xl:gap-14 items-center">
+          <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
 
-            {/* LEFT — Copy */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.65 }}
-              className="flex flex-col gap-5 order-2 lg:order-1"
+            {/* Badge */}
+            <motion.span
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-white/30 text-xs font-semibold text-white backdrop-blur-sm shadow-sm"
             >
-              {/* Badge */}
-              <span className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary shadow-sm">
-                <Sparkles size={13} /> Trusted by 5,000+ students across Bihar
-              </span>
+              <Sparkles size={13} /> Trusted by 5,000+ students across Bihar
+            </motion.span>
 
-              {/* Headline */}
-              <div>
-                <h1 className="font-display font-extrabold text-3xl sm:text-4xl xl:text-5xl text-secondary leading-[1.1] tracking-tight">
-                  Confused About<br className="hidden sm:block" />{" "}
-                  <span className="gradient-text">Your Career?</span>
-                </h1>
-                <p className="mt-3 text-sm sm:text-base text-muted-foreground max-w-lg leading-relaxed">
-                  Get free expert counselling, admission guidance &amp; college selection — personalised for your goals, by people who care.
-                </p>
-              </div>
+            {/* Headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+            >
+              <h1 className="font-display font-extrabold text-4xl sm:text-5xl xl:text-6xl text-white leading-[1.1] tracking-tight">
+                Confused About<br />
+                <span className="text-primary drop-shadow-lg">Your Career?</span>
+              </h1>
+              <p className="mt-5 text-base sm:text-lg text-white/80 max-w-xl mx-auto leading-relaxed">
+                Get free expert counselling, admission guidance &amp; college selection — personalised for your goals, by people who care.
+              </p>
+            </motion.div>
 
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-3">
-                <Button asChild size="sm" className="h-10 px-5 rounded-full bg-gradient-cta hover:opacity-90 shadow-glow text-sm font-semibold">
-                  <Link to="/contact">Book Free Counselling <ArrowRight size={15} className="ml-1" /></Link>
-                </Button>
-                <Button asChild size="sm" variant="outline" className="h-10 px-5 rounded-full border-secondary/25 text-secondary hover:bg-secondary hover:text-secondary-foreground text-sm font-semibold">
-                  <Link to="/courses">Explore Courses</Link>
-                </Button>
-              </div>
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.2 }}
+              className="flex flex-wrap gap-3 justify-center"
+            >
+              <Button asChild size="lg" className="h-12 px-7 rounded-full bg-gradient-cta hover:opacity-90 shadow-glow text-sm font-semibold">
+                <Link to="/contact">Book Free Counselling <ArrowRight size={15} className="ml-1" /></Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-12 px-7 rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm text-sm font-semibold">
+                <Link to="/courses">Explore Courses</Link>
+              </Button>
+            </motion.div>
 
-              {/* Social proof */}
-              <div className="flex flex-wrap items-center gap-5 pt-1">
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-7 h-7 rounded-full border-2 border-white bg-gradient-primary shadow-sm" />
-                    ))}
-                  </div>
-                  <span className="text-xs text-muted-foreground font-medium">Loved by students</span>
+            {/* Social proof */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.65, delay: 0.3 }}
+              className="flex flex-wrap items-center justify-center gap-6 pt-2"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gradient-primary shadow-sm" />
+                  ))}
                 </div>
-                <div className="flex items-center gap-1">
-                  {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={13} className="fill-primary text-primary" />)}
-                  <span className="ml-1 text-xs font-bold text-secondary">4.9 / 5</span>
-                </div>
-                <div className="hidden sm:flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
-                  Free counselling available now
-                </div>
+                <span className="text-xs text-white/80 font-medium">Loved by students</span>
               </div>
-
-              {/* Key stats row */}
-              <div className="grid grid-cols-3 gap-3 pt-1 border-t border-border/40">
-                {[
-                  { stat: "100+", label: "Partner Colleges" },
-                  { stat: "12+", label: "Years Experience" },
-                  { stat: "98%", label: "Success Rate" },
-                ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <div className="font-display font-extrabold text-lg sm:text-xl gradient-text">{s.stat}</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{s.label}</div>
-                  </div>
-                ))}
+              <div className="flex items-center gap-1">
+                {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={14} className="fill-primary text-primary" />)}
+                <span className="ml-1 text-xs font-bold text-white">4.9 / 5</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs text-white/80">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block" />
+                Free counselling available now
               </div>
             </motion.div>
 
-            {/* RIGHT — Enquiry Form */}
+            {/* Key stats row */}
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.65, delay: 0.15 }}
-              className="order-1 lg:order-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.4 }}
+              className="grid grid-cols-3 gap-4 sm:gap-10 pt-4 mt-2 border-t border-white/20 w-full max-w-md mx-auto"
             >
-              <EnquiryForm compact />
+              {[
+                { stat: "100+", label: "Partner Colleges" },
+                { stat: "12+", label: "Years Experience" },
+                { stat: "98%", label: "Success Rate" },
+              ].map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="font-display font-extrabold text-2xl sm:text-3xl text-primary drop-shadow">{s.stat}</div>
+                  <div className="text-[10px] sm:text-xs text-white/70 mt-1">{s.label}</div>
+                </div>
+              ))}
             </motion.div>
 
           </div>
@@ -358,6 +365,29 @@ const Home = () => {
                 </div>
               </motion.article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ENQUIRY FORM SECTION */}
+      <section className="section-padding bg-gradient-to-br from-secondary/5 via-primary/5 to-accent/5">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="text-primary text-xs font-bold uppercase tracking-widest">Get in Touch</span>
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-secondary mt-2">
+              Start Your Journey Today
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
+              Fill in your details and our expert counsellors will reach out within 24 hours — completely free.
+            </p>
+          </motion.div>
+          <div className="max-w-2xl mx-auto">
+            <EnquiryForm title="Make an Enquiry" description="Free counselling — get a callback within 24 hours." />
           </div>
         </div>
       </section>

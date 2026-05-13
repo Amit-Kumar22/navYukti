@@ -4,6 +4,7 @@ import { z } from "zod";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { Send, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,13 +35,30 @@ export const EnquiryForm = ({ compact, title = "Make an Enquiry", description = 
   });
 
   const onSubmit = async (values: EnquiryValues) => {
-    // Frontend-only handler — wire to backend later.
-    await new Promise((r) => setTimeout(r, 700));
-    console.log("[Enquiry submission]", values);
-    toast.success("Thanks! We'll call you back within 24 hours.", {
-      description: `${values.name} — ${values.course}`,
-    });
-    form.reset();
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: values.name,
+          from_mobile: values.mobile,
+          from_email: values.email,
+          course: values.course,
+          message: values.message || "No message provided",
+          to_email: "arunkmrkhata@gmail.com",
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+      toast.success("Thanks! We'll call you back within 24 hours.", {
+        description: `${values.name} — ${values.course}`,
+      });
+      form.reset();
+    } catch (error) {
+      console.error("[EmailJS error]", error);
+      toast.error("Something went wrong. Please try calling us directly.", {
+        description: "You can reach us at +91 9117757578",
+      });
+    }
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, GraduationCap, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, SITE } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -37,14 +37,13 @@ export const Navbar = () => {
         )}
       >
         <div className="flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow">
-              <GraduationCap className="text-primary-foreground" size={22} />
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-display font-bold text-base leading-tight text-secondary">{SITE.shortName}</div>
-              <div className="text-[10px] uppercase tracking-widest text-muted-foreground">Consultancy</div>
-            </div>
+          <Link to="/" className="flex items-center shrink-0">
+            {/* Long logo (icon + text) on all screen sizes */}
+            <img
+              src="/NAvyukti-Long-Logo.svg"
+              alt="Navyukti Consultancy"
+              className="h-12 w-auto"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">

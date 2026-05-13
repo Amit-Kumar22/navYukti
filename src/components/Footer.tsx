@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, Send, MapPin, Phone, Mail, GraduationCap } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, Send, MapPin, Phone, Mail } from "lucide-react";
 import { NAV_LINKS, SERVICES, SITE } from "@/lib/site-data";
 
 export const Footer = () => {
@@ -10,13 +10,11 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow">
-                <GraduationCap className="text-primary-foreground" size={22} />
-              </div>
-              <div>
-                <div className="font-display font-bold text-base leading-tight">{SITE.shortName}</div>
-                <div className="text-[10px] uppercase tracking-widest text-white/60">Consultancy</div>
-              </div>
+              <img
+                src="/NAvyukti-Long-Logo.svg"
+                alt="Navyukti Consultancy"
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-sm text-white/70 leading-relaxed mb-4">
               Helping students choose the right college and career path through expert counselling and personalised guidance.
