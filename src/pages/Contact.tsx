@@ -19,7 +19,7 @@ const Contact = () => (
         <div className="lg:col-span-2 space-y-4">
           {[
             { icon: MapPin, title: "Visit Us", body: SITE.address },
-            { icon: Phone, title: "Call Us", body: SITE.phone, href: `tel:${SITE.phoneRaw}` },
+            { icon: Phone, title: "Call Us", body: `${SITE.phone} / ${SITE.phone2}`, href: `tel:${SITE.phoneRaw}` },
             { icon: Mail, title: "Email Us", body: SITE.email, href: `mailto:${SITE.email}` },
             { icon: Clock, title: "Office Hours", body: "Mon – Sat: 10:00 AM – 7:00 PM" },
           ].map((c, i) => (
@@ -48,7 +48,7 @@ const Contact = () => (
           <div className="rounded-2xl overflow-hidden border border-border/50 shadow-soft aspect-video">
             <iframe
               title="Navyukti Consultancy location"
-              src="https://www.google.com/maps?q=Kharkhura+Nawada+Loco+Gate+Gaya+Bihar+823002&output=embed"
+              src="https://www.google.com/maps?q=Ram+Janam+Singh+Complex+Muffasil+More+Manpur+Bihar+823003&output=embed"
               className="w-full h-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

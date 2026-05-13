@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, Send, MapPin, Phone, Mail } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Send, MapPin, Phone, Mail } from "lucide-react";
 import { NAV_LINKS, SERVICES, SITE } from "@/lib/site-data";
 
 export const Footer = () => {
@@ -20,12 +20,20 @@ export const Footer = () => {
               Helping students choose the right college and career path through expert counselling and personalised guidance.
             </p>
             <div className="flex gap-2">
-              {[Facebook, Instagram, Twitter, Linkedin, Youtube, Send].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: SITE.facebook, label: "Facebook" },
+                { Icon: Instagram, href: SITE.instagram, label: "Instagram" },
+                { Icon: Twitter, href: SITE.twitter, label: "Twitter / X" },
+                { Icon: Youtube, href: SITE.youtube, label: "YouTube" },
+                { Icon: Send, href: SITE.telegram, label: "Telegram" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-lg bg-white/10 hover:bg-primary flex items-center justify-center transition-colors"
-                  aria-label="social"
+                  aria-label={label}
                 >
                   <Icon size={16} />
                 </a>
@@ -67,7 +75,10 @@ export const Footer = () => {
               </li>
               <li className="flex gap-2">
                 <Phone size={16} className="text-primary mt-0.5 shrink-0" />
-                <a href={`tel:${SITE.phoneRaw}`} className="hover:text-primary">{SITE.phone}</a>
+                <div className="flex flex-col gap-0.5">
+                  <a href={`tel:${SITE.phoneRaw}`} className="hover:text-primary">{SITE.phone}</a>
+                  <a href={`tel:${SITE.phone2Raw}`} className="hover:text-primary">{SITE.phone2}</a>
+                </div>
               </li>
               <li className="flex gap-2">
                 <Mail size={16} className="text-primary mt-0.5 shrink-0" />

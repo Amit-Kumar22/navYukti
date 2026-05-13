@@ -4,9 +4,16 @@ export const SITE = {
   tagline: "Confused About Your Career?",
   phone: "+91 9117757578",
   phoneRaw: "+919117757578",
+  phone2: "+91 9117410112",
+  phone2Raw: "+919117410112",
   email: "Navyukticonsultancy@gmail.com",
-  address: "Kharkhura Nawada, Loco Gate, Gaya, Bihar 823002",
+  address: "Ram Janam Singh Complex, Muffasil More, Manpur, Pin-823003 (Near Reliance Petrol Pump)",
   whatsapp: "https://wa.me/919117757578",
+  facebook: "https://www.facebook.com/share/197Eh4VahT/",
+  twitter: "https://x.com/NavyuktiCons",
+  instagram: "https://www.instagram.com/navyukticonsultancy",
+  youtube: "https://youtube.com/@navyukticonsultancy",
+  telegram: "https://t.me/NavyuktiConsultancy",
 };
 
 export const NAV_LINKS = [
